@@ -1,0 +1,59 @@
+/**********************************************************************
+	*Method Name    : XXXXXX
+	*Author         : Kevin Zwart 
+	*Due Date       : 7/15/2022
+	*Program Description: Program acquires an input from the user.(heading)
+	*then it calculates and displays the bearing to screen.
+**********************************************************************/
+
+
+package Compass;
+
+import java.util.Scanner;
+
+public class compass 
+{
+	    public static void main(String[] args) 
+	    {
+	        int bearing;
+	        int heading;
+	        Scanner input = new Scanner(System.in);
+	       
+	        System.out.println("Enter your heading");
+	            heading = input.nextInt();
+	            
+	         while (heading < 0 || heading > 360)
+	         {
+	             System.out.println("Error. Enter a number between 0 and 360");
+	                heading = input.nextInt();
+	         }
+	                
+	         if (heading == 0 || heading == 360)
+	             System.out.println("Your bearing is North");
+	         else if (heading == 90)
+	             System.out.println("Your bearing is East");
+	         else if (heading == 180)
+	             System.out.println("Your bearing is South");
+	         else if (heading == 270)
+	             System.out.println("Your bearing is West");
+	      
+	         else if (heading >= 1 && heading <= 89)
+	         {bearing = 90 - heading;
+	             System.out.println("Your bearing is N"+bearing+".0E");
+	         }
+	         else if (heading >= 91 && heading <= 179)
+	         { bearing = 180 - heading;
+	                 System.out.println("Your bearing is S"+bearing+".0E");
+	         }   
+	         else if (heading >= 181 && heading <= 269)
+	         {
+	             bearing = 270 - heading; 
+	             System.out.println("Your bearing is S"+bearing+".0W");
+	         }
+	         else if (heading >= 271 && heading <= 359)
+	         {
+	             bearing = 360 - heading;
+	             System.out.println("Your bearing is N"+bearing+".0W");
+	         }
+	    }    
+}
